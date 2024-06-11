@@ -54,7 +54,7 @@
 <body>
     <div class="container">
         <h1>Opravdu chcete smazat novelu {{ novela.nazev }}?</h1>
-        <a href="{% url 'novela_list' %}">Zpět na seznam</a>
+        <a href="{% url 'novela_detail' novela.pk %}">Zpět na seznam</a>
         <form method="post">
             {% csrf_token %}
             <button type="submit">Smazat</button>

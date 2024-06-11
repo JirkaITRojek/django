@@ -2,22 +2,82 @@
 <html>
 <head>
     <title>Detail Novely</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            text-align: center;
+            color: #666;
+        }
+        a {
+            display: inline-block;
+            text-align: center;
+            color: #000;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #007bff;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        .button-container a {
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ novela.nazev }}</h1>
-    <p>Autor: <a href="{% url 'autor_detail' novela.autor.pk %}">{{ novela.autor.jmeno }} {{ novela.autor.prijmeni }}</a></p>
-    <p>Datum vydání: {{ novela.datum_vydani }}</p>
-    <a href="{% url 'novela_update' novela.pk %}">Upravit</a>
-    <a href="{% url 'novela_delete' novela.pk %}">Smazat</a>
-    <h2>Recenze</h2>
-    <a href="{% url 'recenze_create' novela.pk %}">Přidat Recenzi</a>
-    <ul>
-        {% for recenze in novela.recenze.all %}
-            <li>
-                <a href="{% url 'recenze_detail' recenze.pk %}">{{ recenze.obsah|truncatewords:10 }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'novela_list' %}">Zpět na seznam</a>
+    <div class="container">
+        <h1>{{ novela.nazev }}</h1>
+        <p>Autor: <a href="{% url 'autor_detail' novela.autor.pk %}">{{ novela.autor.jmeno }} {{ novela.autor.prijmeni }}</a></p>
+        <p>Datum vydání: {{ novela.datum_vydani }}</p>
+        <div class="button-container">
+            <a href="{% url 'novela_update' novela.pk %}"><button>Upravit</button></a>
+            <a href="{% url 'novela_delete' novela.pk %}"><button>Smazat</button></a>
+        </div>
+        <h2>Recenze</h2>
+        <a href="{% url 'recenze_create' novela.pk %}">Přidat Recenzi</a>
+        <ul>
+            {% for recenze in novela.recenze.all %}
+                <li>
+                    <a href="{% url 'recenze_detail' recenze.pk %}">{{ recenze.obsah|truncatewords:10 }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'novela_list' %}">Zpět na seznam</a>
+    </div>
 </body>
 </html>

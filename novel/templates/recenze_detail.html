@@ -48,9 +48,8 @@
         <p>Hodnocení: {{ recenze.hodnoceni }} &#9733;</p>
         <p>Datum recenzování: {{ recenze.datum_recenzovani }}</p>
         <div class="links">
-            <a href="{% url 'recenze_list'  %}">Zpět na seznam recenzí</a>
-            <a href="{% url 'recenze_update' recenze.pk %}">Upravit</a>
-            <a href="{% url 'recenze_delete' recenze.pk %}">Smazat</a>
+            <a href="{% url 'novela_detail' recenze.pk %}">Zpět na seznam </a>
+
         </div>
     </div>
 </body>
