@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Úvodní stránka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #000; /* Černá barva */
+            transition: color 0.3s;
+            font-size: 18px;
+        }
+        a:hover {
+            color: #333; /* Změna barvy při najetí myší */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>Vítejte v naší aplikaci pro správu novel</h1>
+        <ul>
+            <li><a href="{% url 'autor_list' %}">Seznam Autorů</a></li>
+            <li><a href="{% url 'novela_list' %}">Seznam Novel</a></li>
+            <li><a href="{% url 'recenze_list' %}">Seznam Recenzí</a></li>
+        </ul>
+    </div>
+</body>
+</html>

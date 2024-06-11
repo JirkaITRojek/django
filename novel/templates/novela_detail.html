@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Novely</title>
+</head>
+<body>
+    <h1>{{ novela.nazev }}</h1>
+    <p>Autor: <a href="{% url 'autor_detail' novela.autor.pk %}">{{ novela.autor.jmeno }} {{ novela.autor.prijmeni }}</a></p>
+    <p>Datum vydání: {{ novela.datum_vydani }}</p>
+    <a href="{% url 'novela_update' novela.pk %}">Upravit</a>
+    <a href="{% url 'novela_delete' novela.pk %}">Smazat</a>
+    <h2>Recenze</h2>
+    <a href="{% url 'recenze_create' novela.pk %}">Přidat Recenzi</a>
+    <ul>
+        {% for recenze in novela.recenze.all %}
+            <li>
+                <a href="{% url 'recenze_detail' recenze.pk %}">{{ recenze.obsah|truncatewords:10 }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'novela_list' %}">Zpět na seznam</a>
+</body>
+</html>

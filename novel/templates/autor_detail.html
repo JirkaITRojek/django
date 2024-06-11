@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Autora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            text-align: center;
+            color: #666;
+        }
+        .links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .links a {
+            margin: 0 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ autor.jmeno }} {{ autor.prijmeni }}</h1>
+        <p>Datum narození: {{ autor.datum_narozeni }}</p>
+        <div class="links">
+            <a href="{% url 'autor_list' %}">Zpět na seznam</a>
+            <a href="{% url 'autor_update' autor.pk %}">Upravit</a>
+            <a href="{% url 'autor_delete' autor.pk %}">Smazat</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Recenze</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            text-align: center;
+            color: #666;
+        }
+        .links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .links a {
+            margin: 0 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recenze na {{ recenze.novela.nazev }}</h1>
+        <p>{{ recenze.obsah }}</p>
+        <p>Hodnocení: {{ recenze.hodnoceni }} &#9733;</p>
+        <p>Datum recenzování: {{ recenze.datum_recenzovani }}</p>
+        <div class="links">
+            <a href="{% url 'recenze_list'  %}">Zpět na seznam recenzí</a>
+            <a href="{% url 'recenze_update' recenze.pk %}">Upravit</a>
+            <a href="{% url 'recenze_delete' recenze.pk %}">Smazat</a>
+        </div>
+    </div>
+</body>
+</html>
