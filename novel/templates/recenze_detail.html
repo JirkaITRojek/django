@@ -49,6 +49,7 @@
         <p>Datum recenzování: {{ recenze.datum_recenzovani }}</p>
         <div class="links">
             <a href="{% url 'novela_detail' recenze.pk %}">Zpět na seznam </a>
+            <a href="{% url 'recenze_update' recenze.pk %}">Update </a>
 
         </div>
     </div>
